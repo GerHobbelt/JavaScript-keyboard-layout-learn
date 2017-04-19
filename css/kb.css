@@ -518,6 +518,10 @@ settings-key(size, adjust = 0) {
 	 width: 42px; height: 42px; padding: 3px;
 }
 
+.keylabel-ibmpc-std {
+	 color:#080808; width:36px; height:36px;
+}
+
 
 .keyboard-std-keylabel {
   width:36px; 
