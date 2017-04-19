@@ -494,15 +494,30 @@ settings-key(size, adjust = 0) {
 
 /* -------------------------------------------- */
 
-.keyboard-bg-ibmpc {
+.keyboard .keyboard-bg.keyboard-bg-ibmpc {
   background-color:#eeeeee; 
   border-radius: 6px;
 }
 
-.keyboard-bg-macbook {
+.keyboard .keyboard-bg.keyboard-bg-macbook {
    background-color:#dbdbdb; 
    border-radius: 6px 6px 12px 12px / 18px 18px 12px 12px;
 }
+
+
+
+.keyboard .keyboard-bg .keyborder-ibmpc-std {
+   width: 54px; height: 54px; border-style: solid; border-width: 1px; border-color: black; border-radius: 5px; background-color: #cccccc;
+}
+
+.keyboard .keyboard-bg .keytop-ibmpc-std {
+    width: 42px; height: 42px; border-style: solid; border-width: 1px; border-color: rgba(0,0,0,0.1); background-color: #fcfcfc; border-radius: 3px;
+}
+
+.keyboard .keyboard-bg .keylabels-ibmpc-std {
+	 width: 42px; height: 42px; padding: 3px;
+}
+
 
 .keyboard-std-keylabel {
   width:36px; 
