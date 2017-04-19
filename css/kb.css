@@ -13,13 +13,18 @@
 
 @font-face {
   font-family: 'volkswagen_serialregular';
-  src: url("../fonts/Volkswagen_Serial-Regular-webfont.eot");
-  src: url("../fonts/Volkswagen_Serial-Regular-webfont.eot?#iefix") format('embedded-opentype'),
-       url("../fonts/Volkswagen_Serial-Regular-webfont.woff") format('woff'),
-       url("../fonts/Volkswagen_Serial-Regular-webfont.ttf") format('truetype'),
-       url("../fonts/Volkswagen_Serial-Regular-webfont.svg#volkswagen_serialregular") format('svg');
-  font-weight: weight;
-  font-style: style;
+  src: url("../fonts/VolkswagenSerial-Regular.otf");
+  src: url("../fonts/VolkswagenSerial-Regular.ttf") format('truetype'),
+       url("../fonts/VolkswagenSerial-Regular.svg#volkswagen_serialregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'varela_round_regular';
+  src: url("../fonts/VarelaRound-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* font and css for combining-diacritical things */
@@ -96,8 +101,10 @@ html, body {
   box-sizing: border-box;
   background-clip: padding-box;
 }
-.keyboard .hover .keyborder, .keyboard .hover .decal .keyborder { border-color: green !important; border-style: solid; }
-.keyboard .selected .keyborder, .keyboard .selected .decal .keyborder { border-color: red !important; border-style: solid; }
+.keyboard .hover .keyborder, 
+.keyboard .hover .decal .keyborder { border-color: green !important; border-style: solid; }
+.keyboard .selected .keyborder, 
+.keyboard .selected .decal .keyborder { border-color: red !important; border-style: solid; }
 .keyboard .ghosted { opacity: 0.5; }
 .keyboard .decal .keyborder { border-style: none !important; background: transparent !important; }
 .keyboard .hover .decal .keyborder,
@@ -517,20 +524,35 @@ settings-key(size, adjust = 0) {
 .keyboard .keyboard-bg .keylabels-ibmpc-std {
 	 width: 42px; height: 42px; padding: 3px;
 }
+.keyboard .keyboard-bg .keylabels-ibmpc-alt {
+	 width: 56px; height: 42px; padding: 3px;
+}
 
 .keylabel-ibmpc-std {
 	 color:#080808; width:36px; height:36px;
 }
-
+.keylabel-ibmpc-alt {
+	 color:#080808; width:50px; height:36px;
+}
 
 .keyboard-std-keylabel {
   width:36px; 
   max-width:36px; 
   height:36px;
 }
+.keyboard-alt-keylabel {
+	 width:50px; max-width:50px; height:36px;
+}
 
 .keyboard-std-keylabel2 {
   width:38px; 
   max-width:38px; 
   height:36px;
+}
+
+.keyboard-bg-macbook {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 4%, rgba(255,255,255,0.3) 6%, rgba(0,0,0,0) 10%), linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%) !important;
+}
+.keyboard .keycap .keylabel {
+    font-family: varela_round_regular; /* , volkswagen_serialregular */
 }
