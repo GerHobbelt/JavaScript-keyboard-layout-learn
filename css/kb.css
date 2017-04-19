@@ -49,10 +49,14 @@
 
 
 /* Basic style */
+/*
 html, body {
   height: 100%;
   font-family: "Segoe UI", "Arial", "Helvetica", sans-serif;
-  /* Prevent highlighting/selecting text */
+*/
+
+/* Prevent highlighting/selecting text */
+.no-copy-pasta {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -60,8 +64,11 @@ html, body {
   user-select: none;
   cursor: default;
 }
+
 .body { margin: 10px; }
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 
 /* Wrapper for page content to push down footer */
 .wrap {
@@ -72,11 +79,6 @@ html, body {
   padding: 0 0 60px; /* Pad bottom by footer height */
 }
 
-/* Set the fixed height of the footer here */
-#footer {
-  height: 70px;
-  background-color: #f5f5f5;
-}
 
 /* The keyboard background */
 .keyboard {
@@ -85,6 +87,14 @@ html, body {
   margin-top: 10px;
   margin-bottom: 10px;
   border: dashed 1px #ddd;
+
+/*  
+  border-color: red;
+  border-size: 2px;
+*/
+  
+  /* shrink-to-fit: http://stackoverflow.com/questions/450903/how-to-make-div-not-larger-than-its-contents?rq=1#comment-66847556 */
+  display: inline-block;
 }
 .keyboard .keyboard-bg {
   position: inherit;
@@ -328,17 +338,6 @@ for i in (1..9) {
 /* the default (-15px) causes overflow problems */
 .navbar-right { margin-right: 0; }
 
-/* densely pack the form */
-.form-horizontal .form-inline, .form-horizontal > .form-group.form-group-sm > .form-outdent { margin-left: -15px; }
-.form-horizontal .form-inline .form-group { margin-left: 0; margin-right: 0; }
-.form-group { margin-bottom: 2px; }
-.form-control.input-sm, .input-group-sm > .form-control { height: 26px; padding: 2px; }
-.input-group-sm > .input-group-btn > .btn { height: 26px; padding: 2px; min-width: 16px; }
-.input-group-sm > .input-group-addon { height: 26px; padding: 2px; min-width: 16px; }
-.form-horizontal .form-group-sm .checkbox { padding-top: 3px; min-height: 26px; }
-
-#swap-colors, #swap-sizes { position: absolute; top: 11px; left: 200px; z-index: 1; }
-.color-name { display: inline-block; min-width: 3em; font-size: 10px; white-space: nowrap; }
 
 .use-default:after {
   content: "\d7"; /* &times; */
@@ -414,9 +413,6 @@ for i in (1..9) {
   overflow-y: auto;
 }
 
-.dropdown-fixedwidth:disabled {
-  background-color: #eee !important;
-}
 
 table.summarytable {
   border-collapse: collapse;
@@ -428,85 +424,15 @@ table.summarytable th, table.summarytable td {
   padding: 2px 5px;
 }
 
-settings-key(size, adjust = 0) {
-  position: relative;
-  width: size px;
-  height: size px;
-  float: left;
-
-  outerPad = 6
-  innerPad = 3
-  innerSize = (size - outerPad * 2)
-  labelSize = (innerSize - innerPad * 2)
-
-  & .keyborder {
-    position: absolute;
-    width: size px;
-    height: size px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 5px;
-    background-color: #cccccc;
-    pointer-events: none;
-  }
-  & .keylabels {
-    position: absolute;
-    left: outerPad px;
-    top: 3px;
-    width: innerSize px;
-    height: (innerSize - adjust) px;
-    padding: innerPad px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0,0,0,0.1);
-    background-color: #fcfcfc;
-    border-radius: 3px;
-    pointer-events: none;
-  }
-  & .keylabel {
-    position: absolute;
-    width: labelSize px;
-    height: (labelSize - adjust) px;
-    pointer-events: none;
-  }
-  & .keylabel div {
-    position: absolute;
-    width: labelSize px;
-    max-width: labelSize px;
-    height: (labelSize - adjust) px;
-    pointer-events: none;
-  }
-  & .keylabel div * { 
-    pointer-events: all;
-  }
-}
-
-#label-move-src, #label-move-dst {
-  settings-key(108, 8);
-  .keylabel9, .keylabel10, .keylabel11 { overflow: visible; }
-  input { z-index: 1; }
-}
-
-#text-align {
-  settings-key(108);
-  .keylabel button {
-    display: inline-block;
-    font-size: 16px;
-    width: 28px;
-    z-index: 1;
-    float: none;
-  }
-}
 
 /* -------------------------------------------- */
 
-.keyboard .keyboard-bg.keyboard-bg-ibmpc {
+.keyboard.keyboard-ibmpc .keyboard-bg {
   background-color:#eeeeee; 
   border-radius: 6px;
 }
 
-.keyboard .keyboard-bg.keyboard-bg-macbook {
+.keyboard.keyboard-macbook .keyboard-bg {
    background-color:#dbdbdb; 
    border-radius: 6px 6px 12px 12px / 18px 18px 12px 12px;
 }
@@ -526,6 +452,43 @@ settings-key(size, adjust = 0) {
 }
 .keyboard .keyboard-bg .keylabels-ibmpc-alt {
 	 width: 56px; height: 42px; padding: 3px;
+}
+
+.keyboard .keyboard-bg .keyborder-macbook-std {
+	 width: 48px; height: 48px; border-style: solid; border-width: 1px; border-color: black; border-radius: 4px; background-color: #cccccc;
+}
+.keyboard .keyboard-bg .keyborder-macbook-fkey {
+	 width: 50px; height: 35px; border-style: solid; border-width: 1px; border-color: black; border-radius: 4px; background-color: #cccccc;
+}
+.keyboard .keyboard-bg .keyborder-macbook-cursorkey {
+	  width: 48px; height: 27px; border-style: solid; border-width: 1px; border-color: black; border-radius: 4px; background-color: #cccccc;
+}
+.keyboard .keyboard-bg .keytop-macbook-std {
+	 width: 46px; height: 44px; border-style: solid; border-width: 1px; border-color: rgba(0,0,0,0.1); background-color: #fcfcfc; border-radius: 4px;
+}
+.keyboard .keyboard-bg .keytop-macbook-fkey {
+	 width: 48px; height: 31px; border-style: solid; border-width: 1px; border-color: rgba(0,0,0,0.1); background-color: #fcfcfc; border-radius: 4px;
+}
+.keyboard .keyboard-bg .keytop-macbook-cursorkey {
+	  width: 46px; height: 23px; border-style: solid; border-width: 1px; border-color: rgba(0,0,0,0.1); background-color: #fcfcfc; border-radius: 4px;
+}
+.keyboard .keyboard-bg .keylabels-macbook-std {
+	 width: 46px; height: 44px; padding: 4px;
+}
+.keyboard .keyboard-bg .keylabels-macbook-fkey {
+	 width: 48px; height: 31px; padding: 4px;
+}
+.keyboard .keyboard-bg .keylabels-macbook-cursorkey {
+	  width: 46px; height: 23px; padding: 4px;
+}
+.keylabel-macbook-std {
+	 color:#7c7c7c; width:38px; height:36px;
+}
+.keylabel-macbook-fkey {
+	 color:#7c7c7c; width:40px; height:23px;
+}
+.keylabel-macbook-cursorkey {
+	 color:#7c7c7c; width:38px; height:15px;
 }
 
 .keylabel-ibmpc-std {
@@ -548,6 +511,13 @@ settings-key(size, adjust = 0) {
   width:38px; 
   max-width:38px; 
   height:36px;
+}
+
+.keyboard-macbook-keylabel-fkey {
+	 width:40px; max-width:40px; height:23px;
+}
+.keyboard-macbook-keylabel-cursorkey {
+	  width:38px; max-width:38px; height:15px;
 }
 
 .keyboard-bg-macbook {
