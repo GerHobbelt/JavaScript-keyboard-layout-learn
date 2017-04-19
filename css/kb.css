@@ -66,14 +66,14 @@ html, body {
 }
 
 /* The keyboard background */
-#keyboard {
+.keyboard {
   padding: 4px;
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: dashed 1px #ddd;
 }
-#keyboard #keyboard-bg {
+.keyboard .keyboard-bg {
   position: inherit;
   border: solid 1px #ddd;
   padding: 9px;
@@ -82,18 +82,18 @@ html, body {
   min-width: 56px;
   min-height: 56px;
 }
-#keyboard-bg div {
+.keyboard-bg div {
   position: absolute;
   border-color: black;
   box-sizing: border-box;
   background-clip: padding-box;
 }
-#keyboard .hover .keyborder, #keyboard .hover .decal .keyborder { border-color: green !important; border-style: solid; }
-#keyboard .selected .keyborder, #keyboard .selected .decal .keyborder { border-color: red !important; border-style: solid; }
-#keyboard .ghosted { opacity: 0.5; }
-#keyboard .decal .keyborder { border-style: none !important; background: transparent !important; }
-#keyboard .hover .decal .keyborder,
-#keyboard .selected .decal .keyborder { border-style: dashed !important; border-width: 1px; }
+.keyboard .hover .keyborder, .keyboard .hover .decal .keyborder { border-color: green !important; border-style: solid; }
+.keyboard .selected .keyborder, .keyboard .selected .decal .keyborder { border-color: red !important; border-style: solid; }
+.keyboard .ghosted { opacity: 0.5; }
+.keyboard .decal .keyborder { border-style: none !important; background: transparent !important; }
+.keyboard .hover .decal .keyborder,
+.keyboard .selected .decal .keyborder { border-style: dashed !important; border-width: 1px; }
 
 /* Key labels */
 .keylabel>div { display: table-cell; position: static !important; }
@@ -294,10 +294,10 @@ for i in (1..9) {
 /* Only show the keyboard layout itself when printing */
 @media print {
   html, body { overflow: hidden; height: 100%; margin: 0 !important; padding: 0 !important; }
-  #wrap > .navbar, #wrap > .body > .btn-group, #keyboard ~ *, #keyboard + *, #footer, #helpDialog, #markdownDialog, #summary { display: none; margin: 0 !important; padding: 0 !important; }
+  #wrap > .navbar, #wrap > .body > .btn-group, .keyboard ~ *, .keyboard + *, #footer, #helpDialog, #markdownDialog, #summary { display: none; margin: 0 !important; padding: 0 !important; }
   div.body { margin: 0 !important; padding: 0 !important; }
   a { color: black; text-decoration: none; }
-  #keyboard {
+  .keyboard {
     border: none;
     background-color: inherit !important;
     transform: scale(0.75,0.75);
